@@ -1,0 +1,161 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Log In</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="/assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="./ass.ts/css/noscript.css" /></noscript>
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-app.js" defer ></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-auth.js" defer ></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js" defer ></script>
+		<style>
+			
+/* 		
+		#main, .field	{
+				background-color: rgb(255, 255, 255);
+
+				display: block;
+				align-items: center;
+				justify-content: center;
+				text-align: center;
+    		margin-left: auto;
+    		margin-right: auto 
+				
+			} */
+		</style>
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="inner">
+
+							<!-- Logo -->
+							<a href="/" class="logo">
+								<span class="symbol"><img src="../images/rotatingLogo.svg" alt="" /></span><span class="title">Covid Crushers</span>
+							</a>
+
+							<!-- Nav -->
+								<nav>
+									<ul>
+										<li><a href="#menu">Menu</a></li>
+									</ul>
+								</nav>
+
+						</div>
+					</header>
+
+				<!-- Menu -->
+				<nav id="menu">
+					<h2>Menu</h2>
+					<ul>
+						<li><a href="/login">Log in</a></li>
+						<li><a href="/">Home</a></li>
+						<li><a href="/origin">Covid-19 Origin</a></li>
+						<li><a href="/covidstats">Covid19 Status</a></li>
+						<li><a href="/covidResources">Covid19 Resources</a></li>
+						<li><a href="/precautions">Covid-19 precautions</a></li>
+						<li><a href="/help">Covid-19 HelpLine</a></li>
+						<li><a href="/sessionLogout">Log out</a></li>
+					</ul>
+				</nav>
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+							<p id="demo" style="color: red;">Please login to continue</p>
+								
+							<h1>LOGIN</h1>
+							<section>
+                <form id="login">
+									<div class="contact-form fields">
+									<div class="field half">
+                  	<input type="text" name="login" placeholder="Username" required/>
+									</div>
+									</div>
+									<div class="contact-form fields">
+									<div class="field half">
+                  	<input type="password" name="password" placeholder="Password" required minlength="6"/>
+									</div>
+									</div>	
+                  <button  class="primary">Log in</button>
+									<p class="text-center my-2">Don't have an account?<a href="/signup"> Create One</a></p>
+                </form>
+                <br>
+              </section>
+						</div>
+
+						
+					</div>
+
+				<!-- Footer -->
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="../assets/js/jquery.min.js"></script>
+			<script src="../assets/js/browser.min.js"></script>
+			<script src="../assets/js/breakpoints.min.js"></script>
+			<script src="../assets/js/util.js"></script>
+			<script src="../assets/js/main.js"></script>
+
+			<!-- FirebaseAuthentication -->
+			<script>
+
+        window.addEventListener("DOMContentLoaded", () => {
+          const firebaseConfig = {
+            apiKey: "AIzaSyBtU0Vnqq8aGQuHc5VA-7uux6PcAC_5i_A",
+            authDomain: "express-server-auth-4c9e1.firebaseapp.com",
+            databaseURL: "https://express-server-auth-4c9e1-default-rtdb.firebaseio.com",
+            projectId: "express-server-auth-4c9e1",
+            storageBucket: "express-server-auth-4c9e1.appspot.com",
+            messagingSenderId: "71515296468",
+            appId: "1:71515296468:web:921b582fe7c47cd43de141"
+          };
+          // Initialize Firebase
+          firebase.initializeApp(firebaseConfig);
+          
+          firebase.auth().setPersistence(firebase.auth.Auth.Persistence.NONE);
+
+          document
+            .getElementById("login")
+            .addEventListener("submit", (event) => {
+              event.preventDefault();
+              const login = event.target.login.value;
+              const password = event.target.password.value;
+
+              firebase
+                .auth()
+                .signInWithEmailAndPassword(login, password)
+                .then(({ user }) => {
+                  return user.getIdToken().then((idToken) => {
+                    return fetch("/sessionLogin", {
+                      method: "POST",
+                      headers: {
+                        Accept: "application/json",
+                        "Content-Type": "application/json",
+                        "CSRF-Token": Cookies.get("XSRF-TOKEN"),
+                      },
+                      body: JSON.stringify({ idToken }),
+                    });
+                  });
+                })
+                .then(() => {
+                  return firebase.auth().signOut();
+                })
+                .then(() => {
+                  window.location.assign("/");
+                })
+                .catch((err) => {
+                  document.getElementById("demo").innerHTML = err.message;
+                });
+
+              return false;
+            });
+        });
+      </script>
+	</body>
+</html>	

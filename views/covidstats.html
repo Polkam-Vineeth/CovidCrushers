@@ -1,0 +1,220 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Covid Status</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../assets/css/main.css" />
+		<link rel="icon" href="/images/rotatingLogo.svg" type ="image/x-icon">
+		<noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+
+
+    <!-- <covid status api> -->
+    <script src="../assets/js/covidstats.js"></script>
+
+		<style>
+			.gblock{
+				/* background-color: black; */
+				justify-content: center;
+				display: inline-block;
+				margin: 15px;
+			}
+
+			.ingblock{
+				color: #000000;
+				background-color: #6af5cd;
+				justify-content: center;
+				display: inline-block;
+				border-radius: 5px;
+				padding: 10px;
+				margin: 15px;
+				font-family: 'Roboto', sans-serif;
+				letter-spacing: 2px;
+				text-shadow: 2px 2px 5px #50DBB4;
+				border: 2px solid #6af5cd;
+				transition: transform .2s;
+			}
+			.ingblock:hover {
+				/* background-color: rgb(0, 0, 0); */
+				box-shadow: 0 0 10px rgb(34, 32, 33); 
+				transform: scale(1.1);
+			}
+			body{
+				background-color: #50DBB4; 
+				color: #0D0D0D;
+			}
+		</style>
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="inner">
+
+							<!-- Logo -->
+							<a href="/" class="logo">
+								<span class="symbol"><img src="../images/rotatingLogo.svg" alt="" /></span><span class="title">Covid Crushers</span>
+							</a>
+
+							<!-- Nav -->
+								<nav>
+									<ul>
+										<li><a href="#menu">Menu</a></li>
+									</ul>
+								</nav>
+
+						</div>
+					</header>
+
+				  <!-- Menu -->
+					<nav id="menu">
+						<h2>Menu</h2>
+						<ul>
+							<li><a href="/login">Log in</a></li>
+							<li><a href="/">Home</a></li>
+							<li><a href="/origin">Covid-19 Origin</a></li>
+							<li><a href="/covidstats">Covid19 Status</a></li>
+							<li><a href="/covidResources">Covid19 Resources</a></li>
+							<li><a href="/precautions">Covid-19 precautions</a></li>
+							<li><a href="/help">Covid-19 HelpLine</a></li>
+							<li><a href="/sessionLogout">Log out</a></li>
+						</ul>
+					</nav>
+        
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+							<p>The COVID Tracking feature collects and publishes the most complete data 				about COVID-19 cases at a global, national and state level.
+							</p>
+
+							<!-- Global Status -->
+							<!-- <div class="col-6 col-sm-4 col-md-4"></div> -->
+							<section>
+								<h2>Global Status:</h2>
+								<div id="global" class="gblock row text-center">
+									<div class="ingblock col-6 col-sm-4 col-md-4">
+										New Confirmed
+										<div id="NewConfirmed"></div>
+									</div>
+									
+									<div class="ingblock col-6 col-sm-4 col-md-4">
+										Total Confirmed
+										<div id="TotalConfirmed"></div>
+									</div>
+									
+									<div class="ingblock col-6 col-sm-4 col-md-4">
+										New Recovered
+										<div id="NewRecovered"></div>
+									</div>
+
+									<div class="ingblock col-6 col-sm-4 col-md-4">
+										Total Recovered
+										<div id="TotalRecovered"></div>
+									</div>	
+
+									<div class="ingblock col-6 col-sm-4 col-md-4">
+										New Deaths
+										<div id="NewDeaths"></div>
+									</div>
+									<div class="ingblock col-6 col-sm-4 col-md-4">
+										Total Deaths
+										<div id="TotalDeaths"></div>
+									</div>
+									
+								</div>
+							</section>
+							<br>
+							<section>
+
+                  <div class="ml-3 mr-3 mb-3 mt-3 mx-auto">
+                      <!-- <div class="display-4 text-center text-dark text-uppercase 		font-weight-bold">
+												Covid19 Status
+                      </div><br> -->
+											<h2>National Status:</h2>
+											<br>
+                      <div class="form-group">
+                          <input class="form-control bg-light" id="nation" type="text" placeholder=" Enter Country Name" required>
+													<br>
+                          <input class="date form-control" id="date" type="date">
+                      </div>
+                      <input class="submit form-control btn btn-dark" type="submit" value="Status" onclick=getCovidStats()>
+                  </div>
+                  <br><br>
+                  <div id="tmp" class="display-5 text-center text-uppercase font-weight-bold">
+                        
+                  </div>
+                  <div id="temp" class="bg-light"  style="overflow-x:auto;">
+										
+                  </div>
+							</section>
+						</div>
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+				
+							<section>
+								<h2>Follow</h2>
+								<ul class="icons">
+									<li><a href="https://twitter.com/Vineeth_Polkam" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li>
+									<li><a href="https://www.facebook.com/covid.crushers/" class="icon brands style2 fa-facebook-f"><span class="label">Facebook</span></a></li>
+									<li><a href="https://www.instagram.com/covid.crushers/" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a></li>
+									<li><a href="https://github.com/Polkam-Vineeth" class="icon brands style2 fa-github"><span class="label">GitHub</span></a></li>
+									<li><a href="mailto:covidcrushersinfo@gmail.com" class="icon solid style2 fa-envelope"><span class="label">Email</span></a></li>
+								</ul>
+							</section>
+							<ul class="copyright">
+								<li>&copy;ovid &copy;rushes. All rights reserved</li>
+								
+							</ul>
+						</div>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="../assets/js/jquery.min.js"></script>
+			<script src="../assets/js/browser.min.js"></script>
+			<script src="../assets/js/breakpoints.min.js"></script>
+			<script src="../assets/js/util.js"></script>
+			<script src="../assets/js/main.js"></script>
+
+			<script>
+				fetch('https://api.covid19api.com/summary')
+				.then((apidata)=>{
+					// console.log(apidata);
+					return apidata.json(); //raw to json
+				})
+				.then((apidata)=>{
+					// console.log(apidata);
+
+					console.log(apidata.Global);
+					
+					document.getElementById("NewConfirmed").innerHTML = apidata.Global.NewConfirmed;
+					document.getElementById("NewDeaths").innerHTML = apidata.Global.NewDeaths;
+					document.getElementById("NewRecovered").innerHTML = apidata.Global.NewRecovered;
+			
+					document.getElementById("TotalConfirmed").innerHTML = apidata.Global.TotalConfirmed;
+					document.getElementById("TotalDeaths").innerHTML = apidata.Global.TotalDeaths;
+					document.getElementById("TotalRecovered").innerHTML = apidata.Global.TotalRecovered;
+					// console.log(apidata);
+					// console.log(apidata.Countries[76]);
+					
+				})
+				.catch((err)=>{
+					console.log(err);
+					console.log(apidata.Message)
+				})
+			</script>
+	</body>
+</html>
