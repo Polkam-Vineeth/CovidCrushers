@@ -142,6 +142,20 @@ app.get("/help", (req, res) => {
     });
 });
 
+app.get("/vaccine", (req, res) => {
+  
+  const sessionCookie = req.cookies.session || "";
+  admin
+    .auth()
+    .verifySessionCookie(sessionCookie, true /** checkRevoked */)
+    .then(() => {
+      res.render("vaccinetracker.html");
+    })
+    .catch((error) => {
+      res.redirect("/login");
+    });
+});
+
 app.get("/aboutus", (req, res) => {
   
   const sessionCookie = req.cookies.session || "";

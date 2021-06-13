@@ -1,0 +1,183 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Vaccine traking</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="/assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="./ass.ts/css/noscript.css" /></noscript>
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-app.js" defer ></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-auth.js" defer ></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js" defer ></script>
+		<style>
+
+      .slotstable{
+        background-color: #ffffff;
+        color: #000000;
+        overflow-x:auto;
+      }
+
+      #header{
+        text-align: left;
+      }
+
+      .wbg{
+        background-color: #ffffff; 
+        color: #0D0D0D;
+      }
+
+      #form{
+        background-color: #ed4b63; 
+        color: #0D0D0D;
+        padding: 3%;
+      }
+
+      .txtcenter{
+        font-weight: bold;
+        text-align: center;
+        font-size: large;
+      }
+
+      table {
+        border: 1px solid #a7a7a7;
+      }
+		</style>
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="inner">
+
+							<!-- Logo -->
+							<a href="/" class="logo">
+								<span class="symbol"><img src="../images/rotatingLogo.svg" alt="" /></span><span class="title" >Covid Crushers</span>
+							</a>
+
+							<!-- Nav -->
+								<nav>
+									<ul>
+										<li><a href="#menu">Menu</a></li>
+									</ul>
+								</nav>
+
+						</div>
+					</header>
+
+				<!-- Menu -->
+				<nav id="menu">
+					<h2>Menu</h2>
+					<ul>
+            <li><a href="/login">Log in</a></li>
+            <li><a href="/">Home</a></li>
+            <li><a href="/origin">Covid-19 Origin</a></li>
+            <li><a href="/covidstats">Covid19 Status</a></li>
+            <li><a href="/covidResources">Covid19 Resources</a></li>
+            <li><a href="/medications">Covid-19 Medications</a></li>
+            <li><a href="/vaccine">Covid-19 vaccine slots</a></li>
+            <li><a href="/sessionLogout">Log out</a></li>
+					</ul>
+				</nav>
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+							
+							<h2 style="font-size: 30px;background-color: white;"> Covid-19 Vaccination slots</h2>
+							<section>
+
+                <div id="">
+                  <form id="form">
+                    <!-- STATE FIELD -->
+                    <div class="select field half">
+                      <br>
+                      <label for="phone" class="label">SELECCT STATE :</label>
+                      <div class="wbg">
+                        <select name="state" id="state" onChange="displayDistrict(this.value, 2);">
+                          <option value="" disabled selected> Select</option>
+                        </select>
+                      </div>
+                    </div>
+                    <br>
+                    <!-- DISTRICT FIELD -->
+                    <div class="select">
+                      <label for="phone" class="label">SELECT DISTRICT :</label>
+                      <div class="wbg">
+                        <select name="district" id="district">
+                          <option value="" disabled selected>Select</option>
+                        </select>
+                      </div>
+                    </div>
+                    <br>
+                    <div>
+                        <label for="phone" class="label">DATE :</label>
+                        <input id="phone" name="datestate" type="date" />
+                    </div>
+                    
+                    <br>
+                    <!-- BUTTONS -->
+                    <div class="primary">
+                      <button type="submit" >Search</button>
+                      <br><br>
+                      <span>Register on the  <b><a href="https://www.cowin.gov.in/home" target="_blank" >Co-WIN Portal </a> </b>and schedule your vaccination appointment.</span>
+                    </div>
+                  </form>
+
+                </div>
+
+                <p id="err" style="color: #ff0000;"></p>
+                
+                <div class="txtcenter">
+                  <span id="details"></span>
+                  <br>
+                  <span id="datedisplay"></span>
+                </div>
+                <div id="slotstable" 
+                style="background-color: #ffffff;
+                color: #000000;
+                overflow-x:auto;">
+                </div>
+                
+              </section>
+						</div>
+
+						
+					</div>
+
+					<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							<section>
+								<h2>Follow</h2>
+								<ul class="icons">
+									<li><a href="https://www.instagram.com/covid.crushers/" target="blank" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a></li>
+									<li><a href="https://github.com/Polkam-Vineeth" target="blank" class="icon brands style2 fa-github"><span class="label">GitHub</span></a></li>
+									<li><a href="https://www.facebook.com/covid.crushers/" target="blank" class="icon brands style2 fa-facebook-f"><span class="label">Facebook</span></a></li>
+									<li><a href="https://twitter.com/Vineeth_Polkam" target="blank" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li>
+									<li><a href="mailto:covidcrushersinfo@gmail.com" class="icon solid style2 fa-envelope"><span class="label">Email</span></a></li>
+								</ul>
+							</section>
+							<ul class="copyright">
+								<li>&copy;ovid &copy;rushes. All rights reserved</li>
+								<li>Design: <a href="https://www.linkedin.com/in/polkamvineeth/" target="blank"> Vineeth Kumar </a></li>
+							</ul>
+						</div>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="../assets/js/jquery.min.js"></script>
+			<script src="../assets/js/browser.min.js"></script>
+			<script src="../assets/js/breakpoints.min.js"></script>
+			<script src="../assets/js/util.js"></script>
+			<script src="../assets/js/main.js"></script>
+
+      <!-- Vaccine Scripts -->
+      <script src="../assets/js/vaccineslots.js"></script>
+      <script src="../assets/js/vaccinestates.js"></script>
+      
+	</body>
+</html>	

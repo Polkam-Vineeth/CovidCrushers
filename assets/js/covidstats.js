@@ -5,8 +5,7 @@ function getCovidStats()
     var sd=document.getElementById("date").value;
     
     var url= `https://api.covid19api.com/live/country/${country}`;
-    //var url=`https://api.covid19api.com/country/${country}/status/confirmed/live?from=${sd}T00:00:00Z&to=${ed}T00:00:00Z`
-    
+ 
     request.open('GET',url,true);
     request.onload=function()
     {

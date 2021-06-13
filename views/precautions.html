@@ -21,18 +21,25 @@
 				padding:15px;
 				margin: 15px;
 				background-color: #d9dced;
-				color: #84945a;
-				font-weight: bold;
+				color: #000000;
+				font-weight:normal;
 				word-spacing: 2px;
 				border-radius: 5px;
 			}
 			#pli:hover{
 				background-color: #f0f3f7;
-				/* color: #000000; */
+				color: #000000;
 			}
 			body{
 				/* background-color: #333386; */
-				color: #000000;
+				color: #0D0D0D;
+			}
+
+			.imgrow {
+				display: flex;
+			}
+			.imgcolumn {
+				flex: 50%;
 			}
 		</style>
 	</head>
@@ -68,8 +75,8 @@
 						<li><a href="/origin">Covid-19 Origin</a></li>
 						<li><a href="/covidstats">Covid19 Status</a></li>
 						<li><a href="/covidResources">Covid19 Resources</a></li>
-						<li><a href="/precautions">Covid-19 precautions</a></li>
-						<li><a href="/help">Covid-19 HelpLine</a></li>
+						<li><a href="/medications">Covid-19 Medications</a></li>
+						<li><a href="/vaccine">Covid-19 vaccine slots</a></li>
 						<li><a href="/sessionLogout">Log out</a></li>
 					</ul>
 				</nav>
@@ -77,13 +84,22 @@
 				<!-- Main -->
 					<div id="main">
 						<div class="inner">
-							<h1>Covid-19 Precautions</h1>
+							<h2 style="font-size: 30px;">Covid-19 Precautions</h2>
 							<!-- <span class="image main"> -->
 								<!-- <img src="../images/pre1.jpg" alt="" width="400" height="400"/> -->
 							<!-- </span> -->
-							<span class="image fit"><img src="../images/pre1.jpg" alt="" max-width="400" max-height="400"/></span>
+
+							<div class="imgrow">
+								<div class="imgcolumn">
+									<img src="/images/pre1.jpg" style="width:100%">
+								</div>
+								<div class="imgcolumn">
+									<img src="/images/precautionsandsafety.webp" style="width:100%">
+								</div>
+							</div>
+							<br>
 							<h2>Protect Yourself & Those Around You&#128567;</h2>
-							 <p>-With rising COVID 19 cases in the country and changing weather, stigmas around coronavirus are also increasing. The best way to prevent the coronavirus is to not get it in the first place. You can lower your chances of getting or spreading the virus by following these steps:</p>
+							 <p> - With rising COVID 19 cases in the country and changing weather, stigmas around coronavirus are also increasing. The best way to prevent the coronavirus is to not get it in the first place. You can lower your chances of getting or spreading the virus by following these steps:</p>
 							<ul>
 																<li id="pli"> Wear a mask when physical distancing is not possible.</li>
                                 <li id="pli"> Clean your hands often for 20 Seconds. Use soap and water, or an alcohol-based hand rub.</li>
@@ -105,7 +121,12 @@
                                  <li id="pli">Stay home and stay safe as much as possible.</li>
                                 </ul>
 
-																<p id="pli">There are vaccines for COVID-19 and are available to the public, so you should consider getting one. <a style="color: rgb(255, 0, 0);" href="https://www.cowin.gov.in/" >Book a slot here> </a></p>
+															
+
+																<p id="pli">There are vaccines for COVID-19 and are available to the public, so you should consider getting one. 
+																	<a style="color: rgb(255, 0, 0);" 
+																	href="/vaccine" >Find a slot here> </a>
+																</p>
 						</div>
 					</div>
 
@@ -116,15 +137,16 @@
 						<section>
 							<h2>Follow</h2>
 							<ul class="icons">
-								<li><a href="https://twitter.com/Vineeth_Polkam" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li>
-								<li><a href="https://www.facebook.com/covid.crushers/" class="icon brands style2 fa-facebook-f"><span class="label">Facebook</span></a></li>
-								<li><a href="https://www.instagram.com/covid.crushers/" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a></li>
-								<li><a href="https://github.com/Polkam-Vineeth" class="icon brands style2 fa-github"><span class="label">GitHub</span></a></li>
-								<li><a href="mailto:covidcrushersinfo@gmail.com" class="icon solid style2 fa-envelope"><span class="label">Email</span></a></li>
+									<li><a href="https://www.instagram.com/covid.crushers/" target="blank" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a></li>
+									<li><a href="https://github.com/Polkam-Vineeth" target="blank" class="icon brands style2 fa-github"><span class="label">GitHub</span></a></li>
+									<li><a href="https://www.facebook.com/covid.crushers/" target="blank" class="icon brands style2 fa-facebook-f"><span class="label">Facebook</span></a></li>
+									<li><a href="https://twitter.com/Vineeth_Polkam" target="blank" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li>
+									<li><a href="mailto:covidcrushersinfo@gmail.com" class="icon solid style2 fa-envelope"><span class="label">Email</span></a></li>
 							</ul>
 						</section>
 						<ul class="copyright">
 							<li>&copy;ovid &copy;rushes. All rights reserved</li>
+							<li>Design: <a href="https://www.linkedin.com/in/uday-reddy-polepally-a21759210/" target="blank"> Uday Reddy </a></li>
 						</ul>
 					</div>
 				</footer>
