@@ -10,4 +10,4 @@ A web Application dedicated to help the people by providing the complete COVID-1
 - Helpline numbers of NGO’s.
 - Tracking the available vaccination slots.
 
-> Checkout a live version of Covid Crushers here: <a href=https://covidcrushers.herokuapp.com> <img src=https://img.shields.io/badge/Covid_Crushers-important> </a>
+> Checkout a live version of Covid Crushers here: <a href=https://covidcrushers.herokuapp.com> <img src=https://img.shields.io/badge/Covid_Crushers-brightgreen> </a>
