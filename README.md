@@ -7,7 +7,7 @@ A web Application dedicated to help the people by providing the complete COVID-1
 - Safety Precautions.
 - Symptoms of covid19.
 - Treatments and self-care measures.
-- Helpline numbers of NGO’s.
+- Helpline numbers and list of NGO's providing relief.
 - Tracking the available vaccination slots.
 
 > Checkout a live version of Covid Crushers here: <a href=https://covidcrushers.herokuapp.com> <img src=https://img.shields.io/badge/Covid_Crushers-brightgreen> </a>
